@@ -1,0 +1,25 @@
+name: push
+type: function
+summary: Creates a new logging context.
+description: >-
+  Create a new logging context and push it onto the logging stack. If no logger is given, uses the default logger.
+signatures:
+  - arguments:
+    - name: logger
+      type: Logger
+      description: The target logger.
+    - name: name
+      type: String
+      description: The name of the logging context.
+    returns:
+      name: context
+      type: Context
+      description: The logging context.
+  - arguments:
+    - name: name
+      type: String
+      description: The name of the logging context.
+    returns:
+      name: context
+      type: Context
+      description: The logging context.
