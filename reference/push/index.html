@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="turbo-cache-control" content="no-cache">
 
-    <title>Kaikō</title>
+    <title>push</title>
 
-    <meta name="description" content="*A logging runtime for JavaScript*" />
+    <meta name="description" content="_Function_" />
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -168,156 +168,60 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="kaiko" class="break-words">
+<doc-anchor-target id="push" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#kaiko">#</doc-anchor-trigger>
-        <span>Kaikō</span>
-    </h1>
-</doc-anchor-target>
-<p><em>A logging runtime for JavaScript</em></p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-coffeescript"><code v-pre class="language-coffeescript">import * as log from &quot;@dashkite/kaiko&quot;
-
-foo = (bar) -&gt;
-  log.push &quot;foo&quot;
-  log.info bar
-  # do something ...
-  log.warn &quot;uh-oh&quot;
-  # do some other things ...
-  log.pop &quot;foo&quot;</code></pre>
-</doc-codeblock></div>
-<p>Later, you can write the log as rich JSON (meaning the objects JSON normally ignores are converted into values it can serialize for reference purposes):</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-coffeescript"><code v-pre class="language-coffeescript">log.write process.stdout</code></pre>
-</doc-codeblock></div>
-<p>From there, you can pipe the output to a tool like <a href="https://github.com/antonmedv/fx">fx</a>.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-bash"><code v-pre class="language-bash">npm test | fx</code></pre>
-</doc-codeblock></div>
-<p>Or, if you’re in the browser, just access the JSON:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-coffeescript"><code v-pre class="language-coffeescript">log.toJSON()</code></pre>
-</doc-codeblock></div>
-<p>or just log it directly to the console:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-coffeescript"><code v-pre class="language-coffeescript">log.toConsole()</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="reference">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#reference">#</doc-anchor-trigger>
-        <span>Reference</span>
-    </h2>
-</doc-anchor-target>
-<doc-anchor-target id="create">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#create">#</doc-anchor-trigger>
-        <span>create</span>
-    </h3>
-</doc-anchor-target>
-<p><code v-pre>create name → logger</code></p>
-<p>Create a logger. Usually unnecessary, since there is a default global logger that’s provided for you. However, for application-specific uses, you can create a dedicated instance.</p>
-<doc-anchor-target id="push">
-    <h3>
         <doc-anchor-trigger class="header-anchor-trigger" to="#push">#</doc-anchor-trigger>
         <span>push</span>
-    </h3>
+    </h1>
 </doc-anchor-target>
-<p><code v-pre>push logger, name → context</code></p>
-<p><code v-pre>push name → context</code></p>
+<p><em>Function</em> • Creates a new logging context.</p>
+<pre><code>push logger, name &rarr; context</code></pre>
+<br>
+<pre><code>push name &rarr; context</code></pre>
+<br>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>type</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>logger</td>
+<td><a href="#"><code v-pre>Logger</code></a></td>
+<td>The target logger.</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"><code v-pre>String</code></a></td>
+<td>The name of the logging context.</td>
+</tr>
+<tr>
+<td>context</td>
+<td><a href="#"><code v-pre>Context</code></a></td>
+<td>The logging context.</td>
+</tr>
+<tr>
+<td>name</td>
+<td><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"><code v-pre>String</code></a></td>
+<td>The name of the logging context.</td>
+</tr>
+<tr>
+<td>context</td>
+<td><a href="#"><code v-pre>Context</code></a></td>
+<td>The logging context.</td>
+</tr>
+</tbody>
+</table>
+<doc-anchor-target id="description">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#description">#</doc-anchor-trigger>
+        <span>Description</span>
+    </h2>
+</doc-anchor-target>
 <p>Create a new logging context and push it onto the logging stack. If no logger is given, uses the default logger.</p>
-<doc-anchor-target id="pop">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#pop">#</doc-anchor-trigger>
-        <span>pop</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="context">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#context">#</doc-anchor-trigger>
-        <span>context</span>
-    </h3>
-</doc-anchor-target>
-<p><code v-pre>context logger, name, function → context</code></p>
-<p><code v-pre>context name, function → context</code></p>
-<p>Pushes a logging context, executes the given functions, and pops it, returning the context. Convenience for pushing and popping a context.</p>
-<doc-anchor-target id="log">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#log">#</doc-anchor-trigger>
-        <span>log</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="fatal">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#fatal">#</doc-anchor-trigger>
-        <span>fatal</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="error">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#error">#</doc-anchor-trigger>
-        <span>error</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="warn">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#warn">#</doc-anchor-trigger>
-        <span>warn</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="info">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#info">#</doc-anchor-trigger>
-        <span>info</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="debug">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#debug">#</doc-anchor-trigger>
-        <span>debug</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="trace">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#trace">#</doc-anchor-trigger>
-        <span>trace</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="write">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#write">#</doc-anchor-trigger>
-        <span>write</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="level">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#level">#</doc-anchor-trigger>
-        <span>level</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="limit">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#limit">#</doc-anchor-trigger>
-        <span>limit</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="tojson">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#tojson">#</doc-anchor-trigger>
-        <span>toJSON</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="toconsole">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#toconsole">#</doc-anchor-trigger>
-        <span>toConsole</span>
-    </h3>
-</doc-anchor-target>
-<doc-anchor-target id="observe">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#observe">#</doc-anchor-trigger>
-        <span>observe</span>
-    </h3>
-</doc-anchor-target>
 
     
                 <!-- Required only on API pages -->
@@ -327,16 +231,16 @@ foo = (bar) -&gt;
             
 <nav class="flex mt-14">
     <div class="w-1/2">
+        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/">
+            <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
+            <span>
+                <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
+                <span class="block mt-1">Kaikō</span>
+            </span>
+        </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/push">
-            <span>
-                <span class="block text-right text-xs font-normal text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">push</span>
-            </span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-        </a>
     </div>
 </nav>
 
@@ -381,6 +285,6 @@ foo = (bar) -&gt;
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Kaikō", icon: "file" }</script>
+        <script>window.__DOCS__ = { "title": "push", icon: "file" }</script>
     </body>
 </html>
