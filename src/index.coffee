@@ -92,6 +92,10 @@ class Logger
 
 Logger.default = Logger.create()
 
+setter = (name) -> (value) -> Logger.default[name] = value
+level = setter "level"
+limit = setter "limit"
+
 bind = (name) -> _.bind Logger::[name], Logger.default
 log = bind "log"
 fatal = bind "fatal"
@@ -109,10 +113,6 @@ unobserve = bind "unobserve"
 get = bind "get"
 toJSON = bind "toJSON"
 write = bind "write"
-
-setter = (name) -> (value) -> Logger.default[name] = value
-level = setter "level"
-limit = setter "limit"
 
 export {
   log
