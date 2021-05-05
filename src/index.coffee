@@ -19,6 +19,7 @@ levels =
 class Logger
 
   @create: ->
+
     _.assign (new Logger),
       id: 0
       stack: [ [ "root" ] ]
@@ -27,11 +28,13 @@ class Logger
       level: "error"
 
   _.mixin @::, [
+
     _.getters
       current: -> _.last @stack
+
   ]
 
-  log: (level, data) ->
+  log: _.chain (level, data) ->
     if levels[level] >= levels[@level]
       event = Event.create {
         id: @id++
@@ -43,66 +46,73 @@ class Logger
       @events.push event
       handler event for handler in @handlers
       @events.shift() if @limit? && @events.length > @limit
-    @
 
-  push: (name) ->
+  push: _.chain (name) ->
     context = Array.from @current
     context.push name
     @stack.push context
-    @
 
-  pop: -> @stack.pop(); @
+  pop: _.chain -> @stack.pop(); @
+
+  context: _.chain (name, f) ->
+    @push name
+    if (_.isPromise (r = f()))
+      r.then => @pop
+    else
+      @pop()
+
+  clear: _.chain -> @events = []; @id = 0; @
+
+  observe: _.chain (f) -> @handlers.push f
+
+  unobserve: _.chain (f) -> _.remove f, @handlers
 
   get: -> inspect @events
 
-  clear: -> @events = []; @id = 0; @
-
   toJSON: -> JSON.stringify @get(), null, 2
+
+  write: (stream) ->
+    resolve = undefined
+    for chunk from (chunks JSON.stringify @get(), null, 2)
+      ready = new Promise (r) -> resolve = r
+      stream.write chunk, resolve
+      await ready
+
+  fatal: _.proxy "log", [ "fatal" ]
+
+  error: _.proxy "log", [ "error" ]
+
+  warn: _.proxy "log", [ "warn" ]
+
+  info: _.proxy "log", [ "info" ]
+
+  debug: _.proxy "log", [ "debug" ]
+
+  trace: _.proxy "log", [ "trace" ]
 
 Logger.default = Logger.create()
 
-level = (value) -> Logger.default.level = value
+bind = (name) -> _.bind Logger::[name], Logger.default
+log = bind "log"
+fatal = bind "fatal"
+error = bind "error"
+warn = bind "warn"
+info = bind "info"
+debug = bind "debug"
+trace = bind "trace"
+push = bind "push"
+pop = bind "pop"
+context = bind "context"
+clear = bind "clear"
+observe = bind "observe"
+unobserve = bind "unobserve"
+get = bind "get"
+toJSON = bind "toJSON"
+write = bind "write"
 
-limit = (n) -> Logger.default.limit = n
-
-log = _.curry (level, object) -> Logger.default.log level, object
-
-fatal = log "fatal"
-error = log "error"
-warn = log "warn"
-info = log "info"
-debug = log "debug"
-trace = log "trace"
-
-get = -> Logger.default.get()
-
-clear = -> Logger.default.clear()
-
-toJSON = -> Logger.default.toJSON()
-
-push = (name) -> Logger.default.push name
-
-pop = -> Logger.default.pop()
-
-context = (name, f) ->
-  push name
-  if (_.isPromise (r = f()))
-    r.then pop
-  else
-    pop()
-
-observe = (handler) ->
-  Logger.default.handlers.push handler
-
-unobserve = (handler) ->
-  _.remove handler, Logger.default.handlers
-
-write = (stream) ->
-  resolve = undefined
-  for chunk from (chunks JSON.stringify get(), null, 2)
-    ready = new Promise (r) -> resolve = r
-    stream.write chunk, resolve
-    await ready
+setter = (name) -> (value) -> Logger.default[name] = value
+level = setter "level"
+limit = setter "limit"
 
 export {
   log
