@@ -1,0 +1,14 @@
+name: create
+type: function
+summary: Create a logger.
+description: >-
+  Create a logger. Usually unnecessary, since there is a default global logger that’s provided for you. However, for application-specific uses, you can create a dedicated instance.
+signatures:
+  - arguments:
+    - name: name
+      type: String
+      description: The name of the logger.
+    returns:
+      name: logger
+      type: Logger
+      description: The newly created logger.

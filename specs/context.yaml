@@ -1,8 +1,8 @@
-name: push
+name: context
 type: function
-summary: Creates a new logging context.
+summary: Run a function within a logging context.
 description: >-
-  Create a new logging context and push it onto the logging stack. If no logger is given, uses the default logger.
+  Create a new logging context and pushes it onto the logging stack. Runs the given function and pops the stack. If no logger is given, uses the default logger.
 signatures:
   - arguments:
     - name: logger
@@ -12,10 +12,15 @@ signatures:
       name: name
       type: String
       description: The name of the logging context.
+    - &fn
+      name: function
+      type: Function
+      description: The function to run.
     returns: &context
       name: context
       type: Context
       description: The logging context.
   - arguments:
     - *name
+    - *fn
     returns: *context

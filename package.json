@@ -1,5 +1,5 @@
 {
-  "name": "@dashkite/module",
+  "name": "@dashkite/kaiko",
   "version": "0.0.0",
   "description": "",
   "main": "build/node/src/index.js",

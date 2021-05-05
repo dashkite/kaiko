@@ -1,0 +1,16 @@
+name: pop
+type: function
+summary: Pops the context stack.
+description: >-
+  Pops the current context from the logger's context stack, returning the context that was removed.
+signatures:
+  - arguments:
+    - name: logger
+      type: Logger
+      description: The target logger.
+    returns: &context
+      name: context
+      type: Context
+      description: The logging context.
+  - arguments:
+    returns: *context
