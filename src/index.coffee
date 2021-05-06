@@ -34,7 +34,7 @@ class Logger
 
   ]
 
-  log: _.chain (level, data) ->
+  log: _.curry _.rtee (level, data) ->
     if levels[level] >= levels[@level]
       event = Event.create {
         id: @id++
@@ -92,7 +92,9 @@ class Logger
 
 Logger.default = Logger.create()
 
-setter = (name) -> (value) -> Logger.default[name] = value
+create = Logger.create
+
+setter = _.curry (name, value) -> Logger.default[name] = value
 level = setter "level"
 limit = setter "limit"
 
@@ -115,6 +117,7 @@ toJSON = bind "toJSON"
 write = bind "write"
 
 export {
+  create
   log
   level
   limit

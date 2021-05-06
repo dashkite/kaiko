@@ -98,6 +98,21 @@ do ->
       $.log "info", foo: "bar"
       assert.equal false, event?
 
+    test "curry log", ->
+      logger = $.create()
+      # console.log logger.error foo: "bar"
+      $.clear()
+      z = ""
+      f = (x) -> z += x
+      g = _.pipe [
+        f
+        logger.error()
+        f
+      ]
+      g "a"
+      assert.equal "aa", z
+      assert.equal 1, logger.get().length
+
     test "write", ->
       $.clear()
       $.level "info"
