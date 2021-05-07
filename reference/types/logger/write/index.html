@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="turbo-cache-control" content="no-cache">
 
-    <title>trace</title>
+    <title>write</title>
 
-    <meta name="description" content="_Function_" />
+    <meta name="description" content="_Method_" />
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -168,14 +168,14 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="trace" class="break-words">
+<doc-anchor-target id="write" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#trace">#</doc-anchor-trigger>
-        <span>trace</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#write">#</doc-anchor-trigger>
+        <span>write</span>
     </h1>
 </doc-anchor-target>
-<p><em>Function</em> • Log a value using the <em>trace</em> log level.</p>
-<pre><code>trace value &rarr; value</code></pre>
+<p><em>Method</em> • Write the events to a stream as JSON.</p>
+<pre><code>logger.write&nbsp;stream &rarr; stream</code></pre>
 <br>
 <table>
 <thead>
@@ -187,14 +187,19 @@
 </thead>
 <tbody>
 <tr>
-<td>value</td>
-<td>any</td>
-<td>The value to log.</td>
+<td>logger</td>
+<td><a href="/kaiko/reference/types/logger"><code v-pre>Logger</code></a></td>
+<td>An instance of Logger</td>
 </tr>
 <tr>
-<td>→ value</td>
-<td>any</td>
-<td>The value logged.</td>
+<td>stream</td>
+<td><a href="#"><code v-pre>Stream</code></a></td>
+<td>The stream to which to write the events.</td>
+</tr>
+<tr>
+<td>→ stream</td>
+<td><a href="#"><code v-pre>Stream</code></a></td>
+<td>The target stream.</td>
 </tr>
 </tbody>
 </table>
@@ -204,7 +209,7 @@
         <span>Description</span>
     </h2>
 </doc-anchor-target>
-<p>Log a value for purposes of tracing program flow. Returns the value being logged, which allows <code v-pre>log</code> to be used as a combinator. Convenience for <code v-pre>log &quot;trace&quot;, value</code>.</p>
+<p>Writes the logged events to a stream as JSON.</p>
 
     
                 <!-- Required only on API pages -->
@@ -214,23 +219,16 @@
             
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/functions/tojson">
+        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/types/logger/warn">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">toJSON</span>
+                <span class="block mt-1">warn</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/functions/unobserve">
-            <span>
-                <span class="block text-right text-xs font-normal text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">unobserve</span>
-            </span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
-        </a>
     </div>
 </nav>
 
@@ -275,6 +273,6 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "trace", icon: "file" }</script>
+        <script>window.__DOCS__ = { "title": "write", icon: "file" }</script>
     </body>
 </html>
