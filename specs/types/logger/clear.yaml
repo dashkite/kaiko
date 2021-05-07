@@ -1,0 +1,11 @@
+name: clear
+type: method
+summary: Clears the log.
+description: >-
+  Clears the log of events and resets the stack.
+receiver: Logger
+signatures:
+  - returns:
+      name: logger
+      type: Logger
+      description: The default logger.

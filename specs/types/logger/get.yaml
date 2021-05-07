@@ -1,0 +1,11 @@
+name: get
+type: method
+summary: Return the logged events as a serializable array.
+description: >-
+  Return the logged events as an array that can be serialized using `JSON.stringify`.
+receiver: Logger
+signatures:
+  - returns:
+      name: events
+      type: Array
+      description: An array of serializable events.

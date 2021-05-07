@@ -1,0 +1,15 @@
+name: observe
+type: method
+summary: Listen for logging events.
+description: >-
+  Listen for logging events using the given handler, which should accept a loggering event as an argument.
+receiver: Logger
+signatures:
+  - arguments:
+    - name: handler
+      type: Function
+      description: The logging event handler.
+    returns:
+      name: logger
+      type: Logger
+      description: The default logger.

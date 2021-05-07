@@ -1,0 +1,15 @@
+name: unobserve
+type: method
+summary: Remove a logging event listener.
+description: >-
+  Remove _handler_ as a listener for logging events.
+receiver: Logger
+signatures:
+  - arguments:
+    - name: handler
+      type: Function
+      description: The logging event handler.
+    returns:
+      name: logger
+      type: Logger
+      description: The default logger.
