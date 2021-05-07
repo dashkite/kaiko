@@ -1,0 +1,17 @@
+name: fatal
+type: method
+summary: Log a value using the _fatal_ log level.
+description: |-
+  Log a value in the context of a fatal error. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for:
+
+  ```coffeescript
+  logger.log "fatal", value`
+  ```
+receiver: Logger
+signatures:
+  - arguments:
+    - name: value
+      description: The value to log.
+    returns:
+      name: value
+      description: The value logged.

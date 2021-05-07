@@ -2,17 +2,18 @@
 
 _Type_ &bull; Represents an event log with a stack.
 
+
 ## Static Properties
 
 | name | type | description |
 |------|------|-------------|
-|default|[`Logger`][logger]|The default logger.|
+|default|[`Logger`][Logger]|The default logger.|
 
 ## Instance Properties
 
 | name | type | description |
 |------|------|-------------|
-|current|[`Array`][array]|The current logging stack.|
+|current|[`Array`][Array]|The current logging stack.|
 
-[logger]: #
-[array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+[Logger]: /reference/types/logger/index.md
+[Array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array

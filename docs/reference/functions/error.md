@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # error
 
 _Function_ &bull; Log a value using the _error_ log level.
@@ -13,5 +16,5 @@ _Function_ &bull; Log a value using the _error_ log level.
 
 ## Description
 
-Log a value as an error. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "error", value`.
+Log a value in the context of an error. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "error", value`.
 

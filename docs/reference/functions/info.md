@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # info
 
 _Function_ &bull; Log a value using the _info_ log level.

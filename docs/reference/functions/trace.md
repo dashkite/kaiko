@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # trace
 
 _Function_ &bull; Log a value using the _trace_ log level.

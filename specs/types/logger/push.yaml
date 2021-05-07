@@ -1,8 +1,9 @@
 name: push
-type: function
-summary: Creates a new logging context.
+type: method
+summary: Push a new logging context.
 description: >-
-  Create a new logging context and push it onto the logging stack, using the default logger.
+  Create a new logging context and push it onto the logging stack.
+receiver: Logger
 signatures:
   - arguments:
     - name: name

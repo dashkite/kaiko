@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # warn
 
 _Function_ &bull; Log a value using the _warn_ log level.

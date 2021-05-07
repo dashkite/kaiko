@@ -1,16 +1,16 @@
+---
+order: 1
+---
 # pop
 
 _Function_ &bull; Pops the context stack.
 
-<pre><code>pop logger &rarr; context</code></pre>
-<br>
-<pre><code>pop &rarr; context</code></pre>
+<pre><code>pop &rarr; logger</code></pre>
 <br>
 
 | name | type | description |
 |------|------|-------------|
-|logger|[`Logger`][logger]|The target logger.|
-|&rarr; context|[`Context`][context]|The logging context.|
+|&rarr; logger|[`Logger`][Logger]|The target logger.|
 
 
 ## Description
@@ -18,5 +18,4 @@ _Function_ &bull; Pops the context stack.
 Pops the current context from the default logger's context stack, returning the context that was removed.
 
 
-[logger]: #
-[context]: /reference/types/logger/context
+[Logger]: /reference/types/logger/index.md

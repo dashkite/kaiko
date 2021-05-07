@@ -11,7 +11,7 @@ signatures:
     - name: function
       type: Function
       description: The function to run.
-    returns: &context
-      name: context
-      type: Context
-      description: The logging context.
+    returns:
+      name: logger
+      type: Logger
+      description: The default logger.

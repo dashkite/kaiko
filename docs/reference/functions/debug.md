@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # debug
 
 _Function_ &bull; Log a value using the _debug_ log level.
@@ -13,5 +16,5 @@ _Function_ &bull; Log a value using the _debug_ log level.
 
 ## Description
 
-Log a value for debugging purposes. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "error", value`.
+Log a value for debugging purposes. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "debug", value`.
 

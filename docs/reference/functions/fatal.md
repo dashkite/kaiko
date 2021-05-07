@@ -1,3 +1,6 @@
+---
+order: 1
+---
 # fatal
 
 _Function_ &bull; Log a value using the _fatal_ log level.
@@ -13,5 +16,5 @@ _Function_ &bull; Log a value using the _fatal_ log level.
 
 ## Description
 
-Log a value as fatal. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "fatal", value`.
+Log a value in the context of a fatal error. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "fatal", value`.
 

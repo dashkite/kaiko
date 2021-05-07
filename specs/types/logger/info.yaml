@@ -1,0 +1,17 @@
+name: info
+type: method
+summary: Log a value using the _info_ log level.
+description: |-
+  Log a value for informational purposes. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for:
+
+  ```coffeescript
+  logger.log "info", value`
+  ```
+receiver: Logger
+signatures:
+  - arguments:
+    - name: value
+      description: The value to log.
+    returns:
+      name: value
+      description: The value logged.
