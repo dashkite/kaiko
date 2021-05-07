@@ -2,7 +2,7 @@ name: pop
 type: function
 summary: Pops the context stack.
 description: >-
-  Pops the current context from the logger's context stack, returning the context that was removed.
+  Pops the current context from the default logger's context stack, returning the context that was removed.
 signatures:
   - arguments:
     - name: logger

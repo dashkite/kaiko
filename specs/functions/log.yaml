@@ -1,0 +1,15 @@
+name: log
+type: function
+summary: Log a value.
+description: >-
+  Log a value at a given logging level. Returns the value being logged, which allows `log` to be used as a combinator.
+signatures:
+  - arguments:
+    - name: level
+      type: String
+      description: The logging level.
+    - name: value
+      description: The value to log.
+    returns:
+      name: value
+      description: The value logged.

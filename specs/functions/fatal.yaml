@@ -1,0 +1,12 @@
+name: fatal
+type: function
+summary: Log a value using the _fatal_ log level.
+description: >-
+  Log a value as fatal. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "fatal", value`.
+signatures:
+  - arguments:
+    - name: value
+      description: The value to log.
+    returns:
+      name: value
+      description: The value logged.

@@ -34,61 +34,8 @@ Or, if you’re in the browser, just access the JSON:
 log.toJSON()
 ```
 
-or just log it directly to the console:
+## Installation
 
-```coffeescript
-log.toConsole()
+```shell
+npm i @dashkite/kaiko
 ```
-
-## Reference
-
-### create
-
-`create name → logger`
-
-Create a logger. Usually unnecessary, since there is a default global logger that’s provided for you. However, for application-specific uses, you can create a dedicated instance. 
-
-### push
-
-`push logger, name → context`
-
-`push name → context`
-
-Create a new logging context and push it onto the logging stack. If no logger is given, uses the default logger.
-
-### pop
-
-### context
-
-`context logger, name, function → context`
-
-`context name, function → context`
-
-Pushes a logging context, executes the given functions, and pops it, returning the context. Convenience for pushing and popping a context.
-
-### log
-
-### fatal
-
-### error
-
-### warn
-
-### info
-
-### debug
-
-### trace
-
-### write
-
-### level
-
-### limit
-
-### toJSON
-
-### toConsole
-
-### observe
-

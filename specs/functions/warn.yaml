@@ -1,0 +1,12 @@
+name: warn
+type: function
+summary: Log a value using the _warn_ log level.
+description: >-
+  Log a value as a warning. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "warn", value`.
+signatures:
+  - arguments:
+    - name: value
+      description: The value to log.
+    returns:
+      name: value
+      description: The value logged.

@@ -38,5 +38,8 @@
     "@dashkite/masonry": "^0.7.1",
     "amen": "^3.0.0",
     "coffeescript": "^2.5.1"
+  },
+  "dependencies": {
+    "@dashkite/writeme": "file:../writeme"
   }
 }

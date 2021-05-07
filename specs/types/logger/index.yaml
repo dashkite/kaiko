@@ -1,0 +1,12 @@
+name: Logger
+type: type
+summary: Represents an event log with a stack.
+properties:
+  static:
+  - name: default
+    type: Logger
+    description: The default logger.
+  instance:
+  - name: current
+    type: Array
+    description: The current logging stack.

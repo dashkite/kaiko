@@ -1,0 +1,12 @@
+name: error
+type: function
+summary: Log a value using the _error_ log level.
+description: >-
+  Log a value as an error. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "error", value`.
+signatures:
+  - arguments:
+    - name: value
+      description: The value to log.
+    returns:
+      name: value
+      description: The value logged.

@@ -1,0 +1,12 @@
+name: trace
+type: function
+summary: Log a value using the _trace_ log level.
+description: >-
+  Log a value for purposes of tracing program flow. Returns the value being logged, which allows `log` to be used as a combinator. Convenience for `log "trace", value`.
+signatures:
+  - arguments:
+    - name: value
+      description: The value to log.
+    returns:
+      name: value
+      description: The value logged.

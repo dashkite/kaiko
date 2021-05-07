@@ -15,8 +15,8 @@ _Function_ &bull; Pops the context stack.
 
 ## Description
 
-Pops the current context from the logger&#x27;s context stack, returning the context that was removed.
+Pops the current context from the default logger's context stack, returning the context that was removed.
 
 
 [logger]: #
-[context]: /reference//context
+[context]: /reference/types/logger/context

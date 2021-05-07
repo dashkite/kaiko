@@ -1,26 +1,20 @@
 name: context
-type: function
+type: method
 summary: Run a function within a logging context.
 description: >-
-  Create a new logging context and pushes it onto the logging stack. Runs the given function and pops the stack. If no logger is given, uses the default logger.
+  Create a new logging context and pushes it onto the logging stack of a logger. Runs the given function and pops the stack.
 signatures:
   - arguments:
     - name: logger
       type: Logger
       description: The target logger.
-    - &name
-      name: name
+    - name: name
       type: String
       description: The name of the logging context.
-    - &fn
-      name: function
+    - name: function
       type: Function
       description: The function to run.
     returns: &context
       name: context
       type: Context
       description: The logging context.
-  - arguments:
-    - *name
-    - *fn
-    returns: *context
