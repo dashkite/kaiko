@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="turbo-cache-control" content="no-cache">
 
-    <title>Logger.create</title>
+    <title>error</title>
 
-    <meta name="description" content="_Function_" />
+    <meta name="description" content="_Method_" />
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -168,14 +168,14 @@
                 <div id="docs-sidebar-right-toggle"></div>
                
                 <!-- Page content  -->
-<doc-anchor-target id="logger-create" class="break-words">
+<doc-anchor-target id="error" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#logger-create">#</doc-anchor-trigger>
-        <span>Logger.create</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#error">#</doc-anchor-trigger>
+        <span>error</span>
     </h1>
 </doc-anchor-target>
-<p><em>Function</em> • Create a logger.</p>
-<pre><code>Logger.create &rarr; logger</code></pre>
+<p><em>Method</em> • Log a value using the <em>error</em> log level.</p>
+<pre><code>logger.error&nbsp;value &rarr; value</code></pre>
 <br>
 <table>
 <thead>
@@ -187,9 +187,19 @@
 </thead>
 <tbody>
 <tr>
-<td>→ logger</td>
+<td>logger</td>
 <td><a href="/kaiko/reference/types/logger"><code v-pre>Logger</code></a></td>
-<td>The newly created logger.</td>
+<td>An instance of Logger</td>
+</tr>
+<tr>
+<td>value</td>
+<td>any</td>
+<td>The value to log.</td>
+</tr>
+<tr>
+<td>→ value</td>
+<td>any</td>
+<td>The value logged.</td>
 </tr>
 </tbody>
 </table>
@@ -199,7 +209,10 @@
         <span>Description</span>
     </h2>
 </doc-anchor-target>
-<p>Create a logger. Usually unnecessary, since there is a default global logger that’s provided for you. However, for application-specific uses, you can create a dedicated instance.</p>
+<p>Log a value in the context of an error. Returns the value being logged, which allows <code v-pre>log</code> to be used as a combinator. Convenience for:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-coffeescript"><code v-pre class="language-coffeescript">logger.log &quot;error&quot;, value`</code></pre>
+</doc-codeblock></div>
 
     
                 <!-- Required only on API pages -->
@@ -209,20 +222,20 @@
             
 <nav class="flex mt-14">
     <div class="w-1/2">
-        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/types/logger">
+        <a class="px-6 py-4 h-full flex items-center break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/types/logger/debug">
             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
             <span>
                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                <span class="block mt-1">Logger</span>
+                <span class="block mt-1">debug</span>
             </span>
         </a>
     </div>
 
     <div class="w-1/2">
-        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/types/logger/context">
+        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/types/logger/fatal">
             <span>
                 <span class="block text-right text-xs font-normal text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">context</span>
+                <span class="block mt-1">fatal</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>
@@ -270,6 +283,6 @@
 
         <div id="docs-overlay-target"></div>
 
-        <script>window.__DOCS__ = { "title": "Logger.create", icon: "file" }</script>
+        <script>window.__DOCS__ = { "title": "error", icon: "file" }</script>
     </body>
 </html>

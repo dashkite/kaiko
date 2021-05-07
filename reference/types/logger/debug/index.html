@@ -188,8 +188,8 @@
 <tbody>
 <tr>
 <td>logger</td>
-<td><a href="#"><code v-pre>Logger</code></a></td>
-<td>The target logger.</td>
+<td><a href="/kaiko/reference/types/logger"><code v-pre>Logger</code></a></td>
+<td>An instance of Logger</td>
 </tr>
 <tr>
 <td>value</td>
@@ -209,7 +209,10 @@
         <span>Description</span>
     </h2>
 </doc-anchor-target>
-<p>Log a value for debugging purposes. Returns the value being logged, which allows <code v-pre>log</code> to be used as a combinator. Convenience for <code v-pre>log &quot;error&quot;, value</code>.</p>
+<p>Log a value for debugging purposes. Returns the value being logged, which allows <code v-pre>log</code> to be used as a combinator. Convenience for:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-coffeescript"><code v-pre class="language-coffeescript">logger.log &quot;debug&quot;, value`</code></pre>
+</doc-codeblock></div>
 
     
                 <!-- Required only on API pages -->
@@ -229,10 +232,10 @@
     </div>
 
     <div class="w-1/2">
-        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/types/logger/create">
+        <a class="px-6 py-4 -mx-px h-full flex items-center justify-end break-all md:break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/kaiko/reference/types/logger/error">
             <span>
                 <span class="block text-right text-xs font-normal text-gray-400 dark:text-dark-400">Next</span>
-                <span class="block mt-1">Logger.create</span>
+                <span class="block mt-1">error</span>
             </span>
             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
         </a>

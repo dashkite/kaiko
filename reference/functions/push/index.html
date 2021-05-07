@@ -175,7 +175,7 @@
     </h1>
 </doc-anchor-target>
 <p><em>Function</em> • Creates a new logging context.</p>
-<pre><code>push name &rarr; context</code></pre>
+<pre><code>push name &rarr; logger</code></pre>
 <br>
 <table>
 <thead>
@@ -192,9 +192,9 @@
 <td>The name of the logging context.</td>
 </tr>
 <tr>
-<td>→ context</td>
-<td><a href="/kaiko/reference/types/logger/context"><code v-pre>Context</code></a></td>
-<td>The logging context.</td>
+<td>→ logger</td>
+<td><a href="/kaiko/reference/types/logger"><code v-pre>Logger</code></a></td>
+<td>The default logger.</td>
 </tr>
 </tbody>
 </table>
@@ -204,7 +204,7 @@
         <span>Description</span>
     </h2>
 </doc-anchor-target>
-<p>Create a new logging context and push it onto the logging stack using the default logger.</p>
+<p>Create a new logging context and push it onto the logging stack, using the default logger.</p>
 
     
                 <!-- Required only on API pages -->
