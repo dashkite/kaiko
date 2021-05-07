@@ -61,7 +61,10 @@ class Logger
     else
       @pop()
 
-  clear: _.chain -> @events = []; @id = 0; @
+  clear: _.chain ->
+    @events = []
+    @stack = [ [ "root" ] ]
+    @id = 0
 
   observe: _.chain (f) -> @handlers.push f
 

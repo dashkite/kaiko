@@ -17,17 +17,24 @@ getArguments = (func) ->
           name.split('=')[0].trim())
     .filter String
 
-[ cache, clear ] = do (cache = new Map) ->
+[ cache, clear ] = do (cache = new Map, seen = new Set) ->
   [
     (f) ->
       (value) ->
         if cache.has value
           cache.get value
         else
-          cache.set value, (r = f value)
-          r
+          if seen.has value
+            # circular value
+            "..."
+          else
+            seen.add value
+            cache.set value, (r = f value)
+            r
 
-    -> cache.clear()
+    ->
+      seen.clear()
+      cache.clear()
   ]
 
 _inspect = _.generic
@@ -45,17 +52,17 @@ _.generic _inspect, (_.isKind Object), cache (object) ->
       type: object.constructor.name
       properties: {}
     for key, value of object
-      result.properties[key] = inspect value
+      result.properties[key] = _inspect value
     result
 
 _.generic _inspect, _.isObject, cache (object) ->
   result = {}
   for key, value of object
-    result[key] = inspect value
+    result[key] = _inspect value
   result
 
 _.generic _inspect, _.isIterable, cache (it) ->
-  (inspect item) for item from it
+  (_inspect item) for item from it
 
 _.generic _inspect, _.isFunction, cache (f) ->
   name: if f.name == "" then "anonymous" else f.name

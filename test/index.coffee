@@ -113,7 +113,7 @@ do ->
       assert.equal "aa", z
       assert.equal 1, logger.get().length
 
-    test "write", ->
+    await test "write", ->
       $.clear()
       $.level "info"
       $.limit 10000
@@ -125,6 +125,14 @@ do ->
       await $.write mockStream
       assert.equal $.toJSON(), result
 
+    test "circular references", ->
+      $.clear()
+      $.level "info"
+      foo = {}
+      bar = {foo}
+      foo.bar = bar
+      $.info foo
+      assert.equal "...", $.get()[0].data.bar.foo
   ]
 
   process.exit if success then 0 else 1
