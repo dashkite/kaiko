@@ -1,8 +1,8 @@
 name: unobserve
-type: method
+type: function
 summary: Remove a logging event listener.
 description: >-
-  Remove _handler_ as a listener for logging events.
+  Remove _handler_ as a listener for logging events for the default logger.
 receiver: Logger
 signatures:
   - arguments:
@@ -12,4 +12,4 @@ signatures:
     returns:
       name: logger
       type: Logger
-      description: The target logger.
+      description: The default logger.

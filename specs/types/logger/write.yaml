@@ -1,0 +1,15 @@
+name: write
+type: method
+summary: Write the events to a stream as JSON.
+description: >-
+  Writes the logged events to a stream as JSON.
+receiver: Logger
+signatures:
+- arguments:
+  - name: stream
+    type: Stream
+    description: The stream to which to write the events.
+  returns:
+    name: stream
+    type: Stream
+    description: The target stream.

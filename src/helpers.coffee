@@ -80,4 +80,16 @@ chunks = (text, size = 8192) ->
   while i < j
     yield text.substr(i++ * size, size)
 
-export { inspect, chunks }
+# we need to use this because we can't be sure we're going to get back
+# a promises stream ...
+write = (stream, chunk) ->
+  new Promise (resolve, reject) ->
+    stream.write chunk, (error, result) ->
+      if error?
+        reject error
+      else if result == false
+        stream.once "drain", resolve
+      else
+        resolve result
+
+export { inspect, chunks, write }

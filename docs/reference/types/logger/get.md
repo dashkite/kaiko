@@ -13,7 +13,7 @@ _Method_ &bull; Return the logged events as a serializable array.
 
 ## Description
 
-Return the logged events as an array that can be serialized using `JSON.stringify`.
+Return the logged events as an array that can be serialized using `JSON.stringify`. Circular references are replaced with the value `...`.
 
 
 [Logger]: /reference/types/logger/index.md

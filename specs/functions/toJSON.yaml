@@ -1,0 +1,10 @@
+name: toJSON
+type: function
+summary: Return the logged events as JSON.
+description: >-
+  Return the logged events for the default logger as JSON. Circular references are replaced with the value `...`.
+signatures:
+  - returns:
+      name: json
+      type: String
+      description: A JSON representation of the events.

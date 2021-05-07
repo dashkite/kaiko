@@ -1,5 +1,5 @@
 import * as _ from "@dashkite/joy"
-import { inspect, chunks } from "./helpers"
+import { inspect, chunks, write as _write } from "./helpers"
 
 class Event
 
@@ -75,11 +75,13 @@ class Logger
   toJSON: -> JSON.stringify @get(), null, 2
 
   write: (stream) ->
-    resolve = undefined
     for chunk from (chunks JSON.stringify @get(), null, 2)
-      ready = new Promise (r) -> resolve = r
-      stream.write chunk, resolve
-      await ready
+      await _write stream, chunk
+    stream
+
+  pipe: _.chain (stream) ->
+    @observe (event) ->
+      await write stream, JSON.stringify (inspect event), null, 2
 
   fatal: _.proxy "log", [ "fatal" ]
 
@@ -118,6 +120,7 @@ unobserve = bind "unobserve"
 get = bind "get"
 toJSON = bind "toJSON"
 write = bind "write"
+pipe = bind "pipe"
 
 export {
   create
@@ -133,10 +136,11 @@ export {
   push
   pop
   context
-  get
   clear
   observe
   unobserve
-  write
+  get
   toJSON
+  write
+  pipe
 }

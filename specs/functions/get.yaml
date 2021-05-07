@@ -1,9 +1,8 @@
 name: get
-type: method
+type: function
 summary: Return the logged events as a serializable array.
 description: >-
-  Return the logged events as an array that can be serialized using `JSON.stringify`. Circular references are replaced with the value `...`.
-receiver: Logger
+  Return the logged events for the default logger as an array that can be serialized using `JSON.stringify`. Circular references are replaced with the value `...`.
 signatures:
   - returns:
       name: events

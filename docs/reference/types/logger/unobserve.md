@@ -9,7 +9,7 @@ _Method_ &bull; Remove a logging event listener.
 |------|------|-------------|
 |logger|[`Logger`][Logger]|An instance of Logger|
 |handler|[`Function`][Function]|The logging event handler.|
-|&rarr; logger|[`Logger`][Logger]|The default logger.|
+|&rarr; logger|[`Logger`][Logger]|The target logger.|
 
 
 ## Description
