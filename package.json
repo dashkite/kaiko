@@ -32,10 +32,11 @@
   },
   "homepage": "https://github.com/dashkite/module#readme",
   "devDependencies": {
-    "@dashkite/genie": "^0.1.0",
+    "@babel/core": "^7.14.3",
+    "@dashkite/genie": "file:../genie",
     "@dashkite/genie-presets": "file:../genie-presets",
-    "@dashkite/joy": "^0.2.4",
-    "@dashkite/masonry": "^0.7.1",
+    "@dashkite/joy": "^0.3.0",
+    "@dashkite/masonry": "^0.10.2",
     "amen": "^3.0.0",
     "coffeescript": "^2.5.1"
   },
