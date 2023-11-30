@@ -12,7 +12,7 @@ do ->
 
     test "log", ->
       $.level "info"
-      $.log "info", foo: "bar"
+      assert.deepEqual foo: "bar", $.log "info", foo: "bar"
       log = $.get()
       assert.equal true, _.isArray log
       assert.deepEqual [ "root" ], log[0].context
@@ -47,7 +47,6 @@ do ->
       assert.equal true, _.isArray log
       assert.deepEqual [ "root", "foo" ], log[1].context
 
-
     test "strictly equal context", ->
       $.clear()
       $.level "info"
@@ -59,7 +58,7 @@ do ->
     test "log based on level", ->
       $.clear()
       $.level "error"
-      $.log "info", foo: "baz"
+      assert.deepEqual foo: "baz", $.info foo: "baz"
       assert.equal false, $.get()[0]?
 
     test "log limit", ->
