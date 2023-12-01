@@ -81,7 +81,7 @@ class Logger
 
   pipe: _.chain (stream) ->
     @observe (event) ->
-      await write stream, JSON.stringify (inspect event), null, 2
+      await _write stream, JSON.stringify (inspect event), null, 2
 
   fatal: _.proxy "log", [ "fatal" ]
 
