@@ -40,7 +40,7 @@ getArguments = (func) ->
 _inspect = _.generic
   name: "inspect"
   description: "inspect a value"
-  default: (value) -> value.toString?() ? JSON.stringify value
+  default: (value) -> JSON.stringify value
 
 _.generic _inspect, _.isUndefined, -> "undefined"
 

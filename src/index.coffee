@@ -97,50 +97,5 @@ class Logger
 
 Logger.default = Logger.create()
 
-create = Logger.create
-
-setter = _.curry (name, value) -> Logger.default[name] = value
-level = setter "level"
-limit = setter "limit"
-
-bind = (name) -> _.bind Logger::[name], Logger.default
-log = bind "log"
-fatal = bind "fatal"
-error = bind "error"
-warn = bind "warn"
-info = bind "info"
-debug = bind "debug"
-trace = bind "trace"
-push = bind "push"
-pop = bind "pop"
-context = bind "context"
-clear = bind "clear"
-observe = bind "observe"
-unobserve = bind "unobserve"
-get = bind "get"
-toJSON = bind "toJSON"
-write = bind "write"
-pipe = bind "pipe"
-
-export {
-  create
-  log
-  level
-  limit
-  fatal
-  error
-  warn
-  info
-  debug
-  trace
-  push
-  pop
-  context
-  clear
-  observe
-  unobserve
-  get
-  toJSON
-  write
-  pipe
-}
+export default Logger.default
+export { Logger }

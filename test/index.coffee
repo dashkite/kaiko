@@ -4,14 +4,15 @@ import * as _ from "@dashkite/joy"
 
 import { PassThrough } from "stream"
 
-import * as $ from "../src"
+import $ from "../src"
+import { Logger } from "../src"
 
 do ->
 
   print await test "Kaikō", [
 
     test "log", ->
-      $.level "info"
+      $.level = "info"
       assert.deepEqual foo: "bar", $.log "info", foo: "bar"
       log = $.get()
       assert.equal true, _.isArray log
@@ -23,7 +24,7 @@ do ->
 
     test "push/pop", ->
       $.clear()
-      $.level "info"
+      $.level = "info"
       $.log "info", foo: "bar"
       $.push "foo"
       $.log "info", foo: "bar"
@@ -39,7 +40,7 @@ do ->
 
     test "context", ->
       $.clear()
-      $.level "info"
+      $.level = "info"
       $.log "info", foo: "bar"
       $.context "foo", ->
         $.log "info", foo: "bar"
@@ -49,7 +50,7 @@ do ->
 
     test "strictly equal context", ->
       $.clear()
-      $.level "info"
+      $.level = "info"
       $.log "info", foo: "baz"
       $.log "info", foo: "baz"
       log = $.get()
@@ -57,14 +58,14 @@ do ->
 
     test "log based on level", ->
       $.clear()
-      $.level "error"
+      $.level = "error"
       assert.deepEqual foo: "baz", $.info foo: "baz"
       assert.equal false, $.get()[0]?
 
     test "log limit", ->
       $.clear()
-      $.level "info"
-      $.limit 5
+      $.level = "info"
+      $.limit = 5
 
       for n in [1..7]
         $.log "info", foo: "bar"
@@ -75,13 +76,13 @@ do ->
 
     test "toJSON", ->
       $.clear()
-      $.level "info"
+      $.level = "info"
       $.log "info", foo: "bar"
       assert.deepEqual $.get(), JSON.parse $.toJSON()
 
     test "observe", ->
       $.clear()
-      $.level "info"
+      $.level = "info"
       event = undefined
       $.observe (_event) -> event = _event
       $.log "info", foo: "bar"
@@ -89,7 +90,7 @@ do ->
 
     test "unobserve", ->
       $.clear()
-      $.level "info"
+      $.level = "info"
       event = undefined
       f = (_event) -> event = _event
       $.observe f
@@ -98,7 +99,7 @@ do ->
       assert.equal false, event?
 
     test "curry log", ->
-      logger = $.create()
+      logger = Logger.create()
       # console.log logger.error foo: "bar"
       $.clear()
       z = ""
@@ -114,8 +115,8 @@ do ->
 
     await test "write", ->
       $.clear()
-      $.level "info"
-      $.limit 10000
+      $.level = "info"
+      $.limit = 10000
       for i in [1..10000]
         $.log "info", foo: "bar"
       result = ""
@@ -126,7 +127,7 @@ do ->
 
     test "circular references", ->
       $.clear()
-      $.level "info"
+      $.level = "info"
       foo = {}
       bar = {foo}
       foo.bar = bar
