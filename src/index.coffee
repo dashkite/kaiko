@@ -26,6 +26,7 @@ class Logger
       events: []
       handlers: []
       level: "error"
+      limit: 1000
 
   _.mixin @::, [
 
@@ -44,8 +45,8 @@ class Logger
         data
       }
       @events.push event
-      handler event for handler in @handlers
-      @events.shift() if @limit? && @events.length > @limit
+      @events.shift() if @events.length > @limit
+      ( handler event ) for handler in @handlers
 
   push: _.chain (name) ->
     context = Array.from @current

@@ -82,9 +82,9 @@ chunks = (text, size = 8192) ->
 
 # we need to use this because we can't be sure we're going to get back
 # a promises stream ...
-write = (stream, chunk) ->
+write = ( stream, chunk ) ->
   new Promise (resolve, reject) ->
-    stream.write chunk, (error, result) ->
+    stream.write chunk, ( error, result ) ->
       if error?
         reject error
       else if result == false

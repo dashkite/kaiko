@@ -20,6 +20,9 @@ devDependencies:
   '@dashkite/masonry':
     specifier: ^0.10.2
     version: 0.10.8
+  '@dashkite/writeme':
+    specifier: link:../writeme
+    version: link:../writeme
   amen:
     specifier: ^3.0.0
     version: 3.0.0

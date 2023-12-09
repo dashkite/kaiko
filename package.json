@@ -37,10 +37,8 @@
     "@dashkite/genie-presets": "^0.7.0",
     "@dashkite/joy": "^0.3.0",
     "@dashkite/masonry": "^0.10.2",
+    "@dashkite/writeme": "link:../writeme",
     "amen": "^3.0.0",
     "coffeescript": "^2.5.1"
-  },
-  "dependencies": {
-    "@dashkite/writeme": "file:../writeme"
   }
 }
