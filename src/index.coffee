@@ -55,12 +55,18 @@ class Logger
 
   pop: _.chain -> @stack.pop(); @
 
-  context: _.chain (name, f) ->
+  context: ( name, f ) ->
     @push name
-    if (_.isPromise (r = f()))
-      r.then => @pop
+    r  = do f
+    if ( _.isPromise f )
+      r.then ( r ) => do @pop ; r
     else
-      @pop()
+      do @pop ; r
+
+  wrap: ( name, f ) ->
+    self = @
+    _.arity f.length, ( args... ) -> 
+      self.context name, -> f args...
 
   clear: _.chain ->
     @events = []
