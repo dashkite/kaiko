@@ -35,6 +35,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@dashkite/genie": "^0.7.3",
+    "@dashkite/genie-clean": "link:../genie-clean",
     "@dashkite/genie-coffee": "link:../genie-coffee",
     "@dashkite/joy": "^0.3.0",
     "@dashkite/masonry": "^0.10.2",
