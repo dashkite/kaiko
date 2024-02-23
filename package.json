@@ -37,10 +37,10 @@
     "@dashkite/genie": "^0.7.3",
     "@dashkite/genie-clean": "link:../genie-clean",
     "@dashkite/genie-coffee": "^0.1.0",
+    "@dashkite/genie-release": "^0.1.0",
     "@dashkite/joy": "^0.3.0",
     "@dashkite/masonry": "^0.10.2",
     "@dashkite/writeme": "link:../writeme",
-    "amen": "^3.0.0",
-    "coffeescript": "^2.5.1"
+    "amen": "^3.0.0"
   }
 }
