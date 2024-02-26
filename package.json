@@ -34,7 +34,7 @@
   "homepage": "https://github.com/dashkite/module#readme",
   "devDependencies": {
     "@babel/core": "^7.14.3",
-    "@dashkite/genie": "^0.8.1",
+    "@dashkite/genie": "link:../genie",
     "@dashkite/genie-clean": "link:../genie-clean",
     "@dashkite/genie-coffee": "^0.1.0",
     "@dashkite/genie-release": "^0.1.0",
