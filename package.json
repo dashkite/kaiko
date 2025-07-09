@@ -41,7 +41,6 @@
     "@dashkite/genie-release": "^0.1.0",
     "@dashkite/joy": "^0.3.0",
     "@dashkite/masonry": "^0.10.2",
-    "@dashkite/vista": "link:../vista",
     "@dashkite/writeme": "link:../writeme",
     "amen": "^3.0.0"
   }
