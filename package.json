@@ -37,7 +37,6 @@
     "@dashkite/genie": "^0.8.4",
     "@dashkite/genie-clean": "link:../genie-clean",
     "@dashkite/genie-coffee": "^0.1.0",
-    "@dashkite/genie-module": "link:../genie-module",
     "@dashkite/genie-release": "^0.2.6",
     "@dashkite/joy": "^0.3.0",
     "@dashkite/masonry": "^0.10.2",
