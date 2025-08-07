@@ -4,3 +4,4 @@ node_modules
 .genie
 retype.local.json
 .retype
+pnpm-lock.yaml
